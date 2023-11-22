@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/coax-software-todo-list/static/css/main.735b138b.css",
+    "main.js": "/coax-software-todo-list/static/js/main.39c9c5ed.js",
+    "index.html": "/coax-software-todo-list/index.html",
+    "main.735b138b.css.map": "/coax-software-todo-list/static/css/main.735b138b.css.map",
+    "main.39c9c5ed.js.map": "/coax-software-todo-list/static/js/main.39c9c5ed.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.735b138b.css",
+    "static/js/main.39c9c5ed.js"
+  ]
+}
