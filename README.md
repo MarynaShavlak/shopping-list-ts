@@ -1,4 +1,5 @@
 # React To-Do App
+This project was created as a test task for the [COAX Software](https://coaxsoft.com/) Internship Program for Frontend Developers.
 
 This project is a simple to-do app created using React. It allows users to manage their tasks efficiently with features such as adding new to-dos, viewing previously added to-dos, and deleting any to-do.
 
@@ -24,13 +25,15 @@ If a user attempts to create a new task with a title that already exists, a noti
 ## Technology Stack
 
 - **React:** Used for building the frontend of the application.
-- **styled-components:** Used for styling components in a more maintainable and scoped way.
-- **prop-types:** Used for validating the props passed to components, enhancing code robustness.
-- **nanoid:** Used for generating unique IDs when creating task items.
+- **[styled-components](https://styled-components.com/):** Used for styling components in a more maintainable and scoped way.
+- **[prop-types](https://github.com/developit/proptypes):** Used for validating the props passed to components, enhancing code robustness.
+- **[nanoid](https://github.com/ai/nanoid#readme):** Used for generating unique IDs when creating task items.
 - **Local Storage:** Utilized to save tasks and their state after a page reload.
-      - **Custom Local Storage Hook:** Created a custom hook to abstract the interaction with local storage, enhancing code modularity and reusability.
+   - **Custom Local Storage Hook:** Created a custom hook to abstract the interaction with local storage, enhancing code modularity and reusability.
 
+## Design
 
+The design for this project can be viewed on Figma. [Click here to view the design](https://figma.com/file/H6LBTWa4xb1Lf9obFLqN8M/Todo-List-UI-(Community)?node-id=0%3A1&mode=dev).
 
 ## Getting Started
 To run the project locally, follow these steps:
