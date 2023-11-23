@@ -1,15 +1,16 @@
 {
   "files": {
     "main.css": "/coax-software-todo-list/static/css/main.9f842b21.css",
-    "main.js": "/coax-software-todo-list/static/js/main.b1a90668.js",
+    "main.js": "/coax-software-todo-list/static/js/main.96eaf9eb.js",
+    "static/media/main-back.png": "/coax-software-todo-list/static/media/main-back.34709e9a602a5cb50846.png",
     "static/media/back.png": "/coax-software-todo-list/static/media/back.7428afdb95dacb8d0754.png",
     "index.html": "/coax-software-todo-list/index.html",
     "static/media/delete-icon.svg": "/coax-software-todo-list/static/media/delete-icon.21fdbfae607e404007df984a69887dfb.svg",
     "main.9f842b21.css.map": "/coax-software-todo-list/static/css/main.9f842b21.css.map",
-    "main.b1a90668.js.map": "/coax-software-todo-list/static/js/main.b1a90668.js.map"
+    "main.96eaf9eb.js.map": "/coax-software-todo-list/static/js/main.96eaf9eb.js.map"
   },
   "entrypoints": [
     "static/css/main.9f842b21.css",
-    "static/js/main.b1a90668.js"
+    "static/js/main.96eaf9eb.js"
   ]
 }
