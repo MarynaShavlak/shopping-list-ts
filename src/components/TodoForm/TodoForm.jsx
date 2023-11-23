@@ -6,7 +6,7 @@ import { AddButton } from 'components/AddButton';
 export const TodoForm = ({ onSubmit }) => {
   const initialFormData = {
     title: '',
-    priority: '14',
+    priority: '1',
   };
   const [formData, setFormData] = useState(initialFormData);
 
