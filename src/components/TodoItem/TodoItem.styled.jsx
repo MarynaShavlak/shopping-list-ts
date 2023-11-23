@@ -7,6 +7,8 @@ export const Priority = styled.span`
   border-radius: 3px;
   width: 30px;
   height: 30px;
+  min-width: 30px;
+  min-height: 30px;
   color: #000000;
   font-size: 16px;
   font-weight: 700;

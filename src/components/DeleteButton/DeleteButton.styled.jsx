@@ -4,6 +4,8 @@ export const DeleteButtonStyled = styled.button`
   display: flex;
   width: 30px;
   height: 30px;
+  min-width: 30px;
+  min-height: 30px;
   align-items: center;
   justify-content: center;
   background-color: transparent;
