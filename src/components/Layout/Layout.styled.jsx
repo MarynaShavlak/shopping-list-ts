@@ -11,6 +11,6 @@ export const LayoutStyled = styled.main`
   margin: 0 auto;
   background-image: url(${backImg});
   background-size: 732px auto;
-  background-position: right;
+  background-position: right top;
   background-repeat: no-repeat;
 `;
