@@ -38,6 +38,8 @@ The design for this project can be viewed on Figma. [Click here to view the desi
 ## Getting Started
 To run the project locally, follow these steps:
 
+Make sure to have [Node.js](https://nodejs.org/en) and [npm](https://www.npmjs.com/) installed on your machine.
+
 **Clone the repository:**
  ```
 git clone https://github.com/MarynaShavlak/coax-software-todo-list.git
@@ -45,18 +47,14 @@ cd coax-software-todo-list
 ```
 **Install dependencies:**
 ```
-bash
 npm install
 ```
 **Run the app:**
 ```
-bash
 npm start
 ```
 The app will be accessible at http://localhost:3000 in your web browser.
 
 
 ## Additional Notes
-- Make sure to have [Node.js](https://nodejs.org/en) and [npm](https://www.npmjs.com/) installed on your machine.
-- This project uses [React](https://react.dev/) for the frontend and [react-toastify](https://github.com/fkhadra/react-toastify#readme) for notifications.
-- The state of the to-dos is preserved to prevent data loss after a page reload. This is achieved using browser storage mechanisms such as **localStorage**. The implementation details can be found in the source code.
+- 
