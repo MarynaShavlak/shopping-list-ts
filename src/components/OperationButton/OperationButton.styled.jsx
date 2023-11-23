@@ -2,23 +2,24 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
   display: flex;
-  column-gap: 10px;
-  min-width: 200px;
-  align-self: center;
+  min-width: 101px;
+  justify-content: center;
   align-items: center;
-  padding: 10px 30px;
-  background-color: #fde7f0;
-  color: black;
-  border: 5px solid transparent;
-  border-radius: 10px;
-  font-size: 20px;
-  font-weight: 800;
-  text-transform: uppercase;
-  box-shadow: 5px 5px 8px 1px rgba(112, 111, 111, 1);
+  background-color: transparent;
+  color: #ffd700;
+  border: 2px solid #ffd700;
+  border-radius: 5px;
   cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0;
+  padding-top: 4px;
+  padding-bottom: 3px;
   transition: 250ms background-color ease-in, 250ms color ease-in;
   &:hover {
-    background-color: #f787b4;
-    color: white;
+    background-color: #ffd700;
+    color: #000000;
   }
 `;

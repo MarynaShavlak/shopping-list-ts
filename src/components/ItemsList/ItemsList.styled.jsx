@@ -1,21 +1,19 @@
 import styled from 'styled-components';
 
-export const ContactsList = styled.ul`
-  padding: 0;
-  margin: 0;
-  list-style: none;
+export const List = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
   row-gap: 30px;
+  margin-top: 49px;
 `;
 
-export const ContactItem = styled.li`
+export const Item = styled.li`
   margin: 0;
   display: flex;
-  column-gap: 10px;
+  column-gap: 15px;
+  padding-left: 21px;
+  padding-bottom: 6px;
   align-items: center;
-  font-size: 30px;
-  
+  border-bottom: 1px solid #ffd700;
 `;
-

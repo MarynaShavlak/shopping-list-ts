@@ -1,58 +1,36 @@
 import styled from 'styled-components';
 
 export const FormStyled = styled.form`
-  padding: 10px;
   display: flex;
-  flex-direction:column;
-  row-gap: 40px;
-`;
-
-
-export const FormList = styled.ul`
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  row-gap: 30px;
-`;
-
-export const FormItem = styled.li`
-    .contact-form__field {
-      display: flex;
-      flex-direction:column;
-      row-gap: 8px;
+  gap: 14px;
+  .todo-form__input {
+    height: 35px;
+    background: rgba(255, 255, 255, 0.6);
+    color: rgba(33, 33, 33, 0.7);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 18.22px;
+    line-height: 1.22;
+    letter-spacing: 0;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    &:focus {
+      outline: none;
+      border: 2px solid #ffd700;
     }
+  }
 
-    .contact-from__wrapper {
-      position: relative;
-    }
-    .contact-form__icon {
-      position:absolute;
-      top: 50%;
-      left: 20px;
-      transform: translateY(-50%);
-       
+  .input--title {
+    padding-left: 10px;
+    width: 192px;
+  }
 
-    }
-    .contact-form__label {
-      font-size: 30px;
-      font-weight: 700;;
-    }
-
-    .contact-form__input {
-      height: 70px;
-      width: 100%;
-      padding-left: 70px;
-      font-size: 24px;
-      font-weight: 600;
-      color: #f66fa5;
-      border: 5px solid #fab7d2;
-      border-radius: 10px;
-      &:focus {
-        outline: none;
-        border: 5px solid #f787b4;
-      }
-    }
+  .input--priority {
+    width: 64px;
+    text-align: center;
+  }
 `;

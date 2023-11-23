@@ -1,156 +1,74 @@
-import React, { useState} from 'react';
+import React from 'react';
 import { nanoid } from 'nanoid';
-import { Container } from "./App.styled";
-import { Section } from "components/Section";
-import { ContactForm } from 'components/ContactForm';
-import { ContactList } from 'components/ContactList';
-import { Filter } from 'components/Filter';
+import { Container } from './App.styled';
+import { Section } from 'components/Section';
+import { TodoForm } from 'components/TodoForm';
+import { ItemsList } from 'components/ItemsList';
 import { Notification } from 'components/Notification';
 import { ToastContainer, toast } from 'react-toastify';
 import { Layout } from 'components/Layout';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 
-
 export const App = () => {
-  const [contacts, setContacts] = useLocalStorage('contacts', []);  
-  const [filterName, setFilterName] = useState('');
-  const [filterNumber, setFilterNumber] = useState('');
+  const [items, setItems] = useLocalStorage('items', []);
 
-
-  const addContact = (contact) => {
-    let isExist = checkContactInBook(contact)
+  const addItem = item => {
+    let isExist = checkItemInList(item);
     if (isExist) {
       return;
     }
 
-    const contactWithId = {
+    const itemWithId = {
       id: nanoid(),
-      ...contact,
-    }
-    
-    setContacts([contactWithId, ...contacts])
-    return isExist= true;
+      ...item,
+    };
 
-  }
+    setItems([itemWithId, ...items]);
+    return (isExist = true);
+  };
 
-  const checkContactInBook = (contact) => {
-    let isContactExist = false;
-    let isNumberExist = contacts.some(el => el.number === contact.number);
-    let isNameExist = contacts.some(el => el.name === contact.name);
-    if (isNameExist && isNumberExist) {
-        toast.error(`Ooops, contact with name ${contact.name} and number ${contact.number} is already in your phonebook`
-      );
-      return isContactExist=true;
-    }
+  const checkItemInList = item => {
+    const isNameExist = items.some(el => el.title === item.title);
     if (isNameExist) {
-      toast.error(`Ooops, contact with name ${contact.name} is already in your phonebook`
+      toast.error(
+        `Oops, todo item with name ${item.title} is already in your todo list`
       );
-      return isContactExist = true;
-      
+      return true;
     }
-    if (isNumberExist) {
-            toast.error(`Ooops, contact with number ${contact.number} is already in your phonebook`
-      );
+    return false;
+  };
 
-      return isContactExist=true;
-    }
-    
-    return isContactExist;
-  }
-  
-  
-  const deleteContact = (contactId) => {
-    setContacts(contacts.filter(contact => contact.id !== contactId));
-  }
+  const deleteItem = itemId => {
+    setItems(items.filter(item => item.id !== itemId));
+  };
 
+  const hasItemsInList = items.length !== 0;
 
-  const changeContact = (contact) => {
-
-    const updatedContacts = contacts.map(el => {
-      if (el.name === contact.name) {
-        const newEl = {
-          id: nanoid(),
-          name: el.name,
-          number: contact.number,
-        }
-        return newEl;
-      }
-      
-      if (el.number === contact.number) {
-        const newEl = {
-          id: nanoid(),
-          name: contact.name,
-          number: el.number,
-        }
-        return newEl;
-      }
-
-      return el;
-    })
-
-    setContacts(updatedContacts);
-  }
-
-
-  const changeFilter = ({ target: { name, value } }) => {
-      switch (name) {
-      case 'name':
-        setFilterName(value);
-        break;
-       case 'number':
-        setFilterNumber(value);
-        break;
-      default:
-        return console.warn(`Type of field with name ${name} is not found`)
-      
-    }
-  }
-  
-
-  const getFilteredContacts = () => {
-    const normalizeFilter = filterName.toLowerCase();
-    return contacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter))
-                    .filter(contact => contact.number.includes(filterNumber));
-  }
-
-  
-  const filteredContacts = getFilteredContacts();
-  const hasContactsInBook = contacts.length !== 0;
-  
-    return (
-      <Layout>
+  return (
+    <Layout>
       <Container>
-        <Section title="Phonebook">
-          <ContactForm onSubmit={addContact} operationType ="Add contact" />
+        <Section title="Shoping List">
+          <TodoForm onSubmit={addItem} operationType="Add" />
         </Section>
-        <Section title="Contacts">
-          {hasContactsInBook
-            ?
-            (
-              <>
-              <Filter value={filterName} onChange={changeFilter} name='name' type ='Find contacts by name' />
-              <Filter value={filterNumber} onChange={changeFilter} name='number' type='Find contacts by number' />
-              {filteredContacts.length === 0 && filterName  && filterNumber &&  <Notification message={`Nothing found by selected name "${filterName}"  and number "${filterNumber}"`} />}
-               {filteredContacts.length === 0 && filterName && !filterNumber && <Notification message={`Nothing found by selected name "${filterName}" `} />}   
-               {filteredContacts.length === 0 && filterNumber && !filterName && <Notification message={`Nothing found by selected number "${filterNumber}" `} />}   
-              <ContactList contacts={filteredContacts} onDeleteContact={deleteContact} onChangeContact={changeContact}></ContactList>
-              </>
-            )
-            :
-            (<Notification message="There are no contacts in your phonebook yet" />)
-          }
+        <Section>
+          {hasItemsInList ? (
+            <>
+              <ItemsList items={items} onDeleteItem={deleteItem}></ItemsList>
+            </>
+          ) : (
+            <Notification message="There are no items in your todo list yet" />
+          )}
         </Section>
-          <ToastContainer
-            position="top-right"
-            newestOnTop={false}
-            closeOnClick
-            pauseOnFocusLoss
-            pauseOnHover={false}
-            theme="colored"
-            autoClose={4000} />
+        <ToastContainer
+          position="top-right"
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          pauseOnHover={false}
+          theme="colored"
+          autoClose={4000}
+        />
       </Container>
-
-      </Layout>
-      
-    );
-}
+    </Layout>
+  );
+};
