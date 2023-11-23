@@ -10,7 +10,7 @@ export const LayoutStyled = styled.main`
   max-width: 1366px;
   margin: 0 auto;
   background-image: url(${backImg});
-  background-size: contain;
+  background-size: 732px auto;
   background-position: right;
   background-repeat: no-repeat;
 `;
