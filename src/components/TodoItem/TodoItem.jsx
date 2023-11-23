@@ -3,24 +3,20 @@ import PropTypes from 'prop-types';
 import { DeleteButton } from 'components/DeleteButton';
 import { Priority, Title } from './TodoItem.styled';
 
-export const TodoItem = ({ item, onDeleteItem }) => {
-  const [title, setTitle] = useState('');
-  const [priority, setPriority] = useState('');
+export const TodoItem = ({ item: { id, title, priority }, onDeleteItem }) => {
+  const [itemTitle, setItemTitle] = useState('');
+  const [itemPriority, setItemPriority] = useState('');
 
   useEffect(() => {
-    setTitle(item.title);
-  }, [item.title]);
-
-  useEffect(() => {
-    setPriority(item.priority);
-  }, [item.priority]);
+    setItemTitle(title);
+    setItemPriority(priority);
+  }, [title, priority]);
 
   return (
     <>
-      <Priority>{priority}</Priority>
-      <Title>{title}</Title>
-
-      <DeleteButton onClick={() => onDeleteItem(item.id)} />
+      <Priority>{itemPriority}</Priority>
+      <Title>{itemTitle}</Title>
+      <DeleteButton onClick={() => onDeleteItem(id)} />
     </>
   );
 };

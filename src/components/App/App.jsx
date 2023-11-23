@@ -3,20 +3,17 @@ import { nanoid } from 'nanoid';
 import { Container } from './App.styled';
 import { Section } from 'components/Section';
 import { TodoForm } from 'components/TodoForm';
-import { ItemsList } from 'components/ItemsList';
+import { TodoItemsList } from 'components/TodoItemsList';
 import { Notification } from 'components/Notification';
 import { ToastContainer, toast } from 'react-toastify';
 import { Layout } from 'components/Layout';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 
-export const App = () => {
+export function App() {
   const [items, setItems] = useLocalStorage('items', []);
 
   const addItem = item => {
-    let isExist = checkItemInList(item);
-    if (isExist) {
-      return;
-    }
+    if (checkItemInList(item)) return;
 
     const itemWithId = {
       id: nanoid(),
@@ -24,18 +21,16 @@ export const App = () => {
     };
 
     setItems([itemWithId, ...items]);
-    return (isExist = true);
   };
 
-  const checkItemInList = item => {
-    const isNameExist = items.some(el => el.title === item.title);
+  const checkItemInList = ({ title }) => {
+    const isNameExist = items.some(el => el.title === title);
     if (isNameExist) {
       toast.error(
-        `Oops, todo item with name ${item.title} is already in your todo list`
+        `Oops, todo item with name ${title} is already in your todo list`
       );
-      return true;
     }
-    return false;
+    return isNameExist;
   };
 
   const deleteItem = itemId => {
@@ -48,13 +43,14 @@ export const App = () => {
     <Layout>
       <Container>
         <Section title="Shoping List">
-          <TodoForm onSubmit={addItem} operationType="Add" />
+          <TodoForm onSubmit={addItem} />
         </Section>
         <Section>
           {hasItemsInList ? (
-            <>
-              <ItemsList items={items} onDeleteItem={deleteItem}></ItemsList>
-            </>
+            <TodoItemsList
+              items={items}
+              onDeleteItem={deleteItem}
+            ></TodoItemsList>
           ) : (
             <Notification message="There are no items in your todo list yet" />
           )}
@@ -71,4 +67,4 @@ export const App = () => {
       </Container>
     </Layout>
   );
-};
+}

@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { List, Item } from './ItemsList.styled';
+import { List, Item } from './TodoItemsList.styled';
 import { TodoItem } from 'components/TodoItem';
 
-export function ItemsList({ items, ...otherProps }) {
+export function TodoItemsList({ items, ...otherProps }) {
   return (
     <List>
       {items.map(item => (
@@ -15,7 +15,7 @@ export function ItemsList({ items, ...otherProps }) {
   );
 }
 
-ItemsList.propTypes = {
+TodoItemsList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

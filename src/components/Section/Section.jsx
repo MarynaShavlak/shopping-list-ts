@@ -5,7 +5,7 @@ export function Section({ title, children }) {
   return (
     <SectionStyled>
       {title && <h2 className="section__title">{title}</h2>}
-      <div className="section__elements">{children}</div>
+      {children}
     </SectionStyled>
   );
 }

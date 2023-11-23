@@ -1,51 +1,62 @@
-import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { Form } from 'components/Form';
+import PropTypes from 'prop-types';
+import { FormStyled } from './TodoForm.styled';
+import { AddButton } from 'components/AddButton';
 
-export const TodoForm = ({ onSubmit, operationType }) => {
-  const [title, setTitle] = useState('');
-  const [priority, setPriority] = useState('');
+export const TodoForm = ({ onSubmit }) => {
+  const initialFormData = {
+    title: '',
+    priority: '14',
+  };
+  const [formData, setFormData] = useState(initialFormData);
 
-  const handleChange = ({ target: { name, value } }) => {
-    switch (name) {
-      case 'title':
-        setTitle(value);
-        break;
-      case 'priority':
-        setPriority(value);
-        break;
-      default:
-        return console.warn(`Type of field with name ${name} is not found`);
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({ ...prevData, [name]: value }));
+  };
+
+  const handlePriorityChange = e => {
+    const inputValue = e.target.value;
+    if (/^[1-9]\d*$/.test(inputValue) || inputValue === '') {
+      handleChange(e);
     }
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    const newItem = { title, priority };
-    const isItemAdded = onSubmit(newItem);
-
-    if (isItemAdded === true) {
-      reset();
-    }
-  };
-
-  const reset = () => {
-    setTitle('');
-    setPriority('');
+    const { title, priority } = formData;
+    const trimmedTitle = title.trim();
+    const trimmedPriority = priority.slice(0, 3);
+    const newItem = { title: trimmedTitle, priority: trimmedPriority };
+    onSubmit(newItem);
+    setFormData(initialFormData);
   };
 
   return (
-    <Form
-      title={title}
-      priority={priority}
-      operationType={operationType}
-      onSubmit={handleSubmit}
-      onChange={handleChange}
-    />
+    <FormStyled onSubmit={handleSubmit}>
+      <input
+        className="todo-form__input input--title"
+        type="text"
+        name="title"
+        value={formData.title}
+        onChange={handleChange}
+        required
+        placeholder="Title..."
+      />
+
+      <input
+        className="todo-form__input input--priority"
+        type="text"
+        name="priority"
+        value={formData.priority}
+        onChange={handlePriorityChange}
+        required
+      />
+      <AddButton />
+    </FormStyled>
   );
 };
 
 TodoForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  operationType: PropTypes.string.isRequired,
 };
