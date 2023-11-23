@@ -35,6 +35,15 @@ If a user attempts to create a new task with a title that already exists, a noti
 
 The design for this project can be viewed on Figma. [Click here to view the design](https://figma.com/file/H6LBTWa4xb1Lf9obFLqN8M/Todo-List-UI-(Community)?node-id=0%3A1&mode=dev).
 
+## Responsive Design
+
+This project is designed for screen widths of 1366px and larger.
+
+## Screenshots
+![Screenshot 1](./assets/start.jpg)
+![Screenshot 2](./assets/full-list.jpg)
+![Screenshot 3](./assets/error.png)
+
 ## Getting Started
 To run the project locally, follow these steps:
 
@@ -55,6 +64,3 @@ npm start
 ```
 The app will be accessible at http://localhost:3000 in your web browser.
 
-
-## Additional Notes
-- 
