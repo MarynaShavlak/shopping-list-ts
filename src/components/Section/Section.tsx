@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
+import React, { ReactElement } from 'react';
 import { SectionStyled } from './Section.styled';
 
-export function Section({ title, children }) {
+interface SectionProps {
+  title?: string;
+  children: ReactElement;
+}
+
+export const Section = ({ title, children }: SectionProps) => {
   return (
     <SectionStyled>
       {title && <h2 className="section__title">{title}</h2>}
       {children}
     </SectionStyled>
   );
-}
-
-Section.propTypes = {
-  title: PropTypes.string,
-  children: PropTypes.element.isRequired,
 };

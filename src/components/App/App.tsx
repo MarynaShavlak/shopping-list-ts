@@ -9,31 +9,37 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Layout } from 'components/Layout';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 
-export function App() {
-  const [items, setItems] = useLocalStorage('items', []);
+export interface ItemProps {
+  id: string;
+  title: string;
+  priority: string;
+}
 
-  const addItem = item => {
+export const App = () => {
+  const [items, setItems] = useLocalStorage<ItemProps[]>('items', []);
+
+  const addItem = (item: Partial<ItemProps>) => {
     if (checkItemInList(item)) return;
 
     const itemWithId = {
       id: nanoid(),
-      ...item,
+      title: item.title || '',
+      priority: item.priority || '',
     };
-
     setItems([itemWithId, ...items]);
   };
 
-  const checkItemInList = ({ title }) => {
-    const isNameExist = items.some(el => el.title === title);
+  const checkItemInList = (item: Partial<ItemProps>): boolean => {
+    const isNameExist = items.some(el => el.title === item.title);
     if (isNameExist) {
       toast.error(
-        `Oops, todo item with name ${title} is already in your todo list`
+        `Oops, todo item with name ${item.title} is already in your todo list`
       );
     }
     return isNameExist;
   };
 
-  const deleteItem = itemId => {
+  const deleteItem = (itemId: string) => {
     setItems(items.filter(item => item.id !== itemId));
   };
 
@@ -42,8 +48,8 @@ export function App() {
   return (
     <Layout>
       <Container>
-        <Section title="Shoping List">
-          <TodoForm onSubmit={addItem} />
+        <Section title="Shopping List">
+          <TodoForm onSubmit={(item: Partial<ItemProps>) => addItem(item)} />
         </Section>
         <Section>
           {hasItemsInList ? (
@@ -67,4 +73,4 @@ export function App() {
       </Container>
     </Layout>
   );
-}
+};

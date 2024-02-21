@@ -1,9 +1,17 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 import { List, Item } from './TodoItemsList.styled';
 import { TodoItem } from 'components/TodoItem';
+import { ItemProps } from 'components/App/App';
 
-export function TodoItemsList({ items, ...otherProps }) {
+interface TodoItemsListProps {
+  items: ItemProps[];
+  onDeleteItem: (itemId: string) => void;
+}
+
+export const TodoItemsList: FC<TodoItemsListProps> = ({
+  items,
+  ...otherProps
+}) => {
   return (
     <List>
       {items.map(item => (
@@ -13,12 +21,4 @@ export function TodoItemsList({ items, ...otherProps }) {
       ))}
     </List>
   );
-}
-
-TodoItemsList.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
 };

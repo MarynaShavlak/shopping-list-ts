@@ -1,28 +1,37 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { FC, useState, FormEvent } from 'react';
 import { FormStyled } from './TodoForm.styled';
 import { AddButton } from 'components/AddButton';
+import { ItemProps } from 'components/App/App';
 
-export const TodoForm = ({ onSubmit }) => {
-  const initialFormData = {
+interface TodoFormProps {
+  onSubmit: (item: Partial<ItemProps>) => void;
+}
+
+interface TodoFormData {
+  title: string;
+  priority: string;
+}
+
+export const TodoForm: FC<TodoFormProps> = ({ onSubmit }) => {
+  const initialFormData: TodoFormData = {
     title: '',
     priority: '1',
   };
-  const [formData, setFormData] = useState(initialFormData);
+  const [formData, setFormData] = useState<TodoFormData>(initialFormData);
 
-  const handleChange = e => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prevData => ({ ...prevData, [name]: value }));
   };
 
-  const handlePriorityChange = e => {
+  const handlePriorityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     if (/^[1-9]\d*$/.test(inputValue) || inputValue === '') {
       handleChange(e);
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const { title, priority } = formData;
     const trimmedTitle = title.trim();
@@ -55,8 +64,4 @@ export const TodoForm = ({ onSubmit }) => {
       <AddButton />
     </FormStyled>
   );
-};
-
-TodoForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };
