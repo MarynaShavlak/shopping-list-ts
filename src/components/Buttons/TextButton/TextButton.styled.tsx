@@ -9,8 +9,8 @@ export const Button = styled.button<ButtonProps>`
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  color: #ffd700;
-  border: 2px solid #ffd700;
+  color: #e4f4a3;
+  border: 2px solid #e4f4a3;
   border-radius: 5px;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
@@ -25,10 +25,10 @@ export const Button = styled.button<ButtonProps>`
   font-size: ${(props: ButtonProps) =>
     props.size === 'little' ? '10px' : '16px'};
   border: ${(props: ButtonProps) =>
-    props.size === 'little' ? '1px solid #ffd700' : '2px solid #ffd700'};
+    props.size === 'little' ? '1px solid #e4f4a3' : '2px solid #e4f4a3'};
 
   &:hover {
-    background-color: #ffd700;
+    background-color: #e4f4a3;
     color: #000000;
   }
 

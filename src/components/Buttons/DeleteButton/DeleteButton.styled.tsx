@@ -9,19 +9,16 @@ export const DeleteButtonStyled = styled.button`
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  color: #ffd700;
+  color: #e4f4a3;
   border: none;
   border-radius: 3px;
   cursor: pointer;
   transition: 250ms background-color ease-in, 250ms color ease-in;
   &:hover {
-    background-color: #ffd700;
-    svg {
-      fill: #000000;
-    }
+    background-color: #e4f4a3;
   }
   svg {
-    fill: #ffd700;
+    fill: #000000;
   }
   @media screen and (min-width: 768px) {
     width: 30px;

@@ -9,7 +9,7 @@ export const FormStyled = styled.form`
   .edit-todo-form__input {
     height: 35px;
     background: rgba(255, 255, 255, 0.6);
-    color: rgba(33, 33, 33, 0.7);
+    color: rgba(33, 33, 33, 1);
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     font-size: 14px;
@@ -26,7 +26,7 @@ export const FormStyled = styled.form`
     }
     &:focus {
       outline: none;
-      border: 2px solid #ffd700;
+      border: 2px solid #e4f4a3;
     }
   }
 

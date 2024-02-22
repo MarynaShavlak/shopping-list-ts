@@ -12,14 +12,14 @@ export const Priority = styled.span`
   color: #000000;
   font-size: 14px;
   font-weight: 700;
-  background-color: #ffd700;
+  background-color: #fff;
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
 `;
 
 export const Title = styled.span`
-  color: rgba(255, 255, 255, 0.9);
+  color: #000000;
   font-size: 14px;
   font-weight: 400;
   flex-grow: 1;

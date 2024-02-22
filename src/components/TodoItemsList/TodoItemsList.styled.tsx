@@ -14,7 +14,7 @@ export const Item = styled.li`
   column-gap: 10px;
   padding-bottom: 6px;
   align-items: center;
-  border-bottom: 1px solid #ffd700;
+  border-bottom: 1px solid #e4f4a3;
   @media screen and (min-width: 768px) {
     padding-left: 21px;
     column-gap: 15px;

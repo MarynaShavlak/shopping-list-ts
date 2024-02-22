@@ -12,7 +12,9 @@ export const Container = styled.div`
   padding-top: 19px;
   padding-bottom: 19px;
   border-radius: 30px;
-  background-image: url(${back}),
+  /* background-color: #ffb08f; */
+  background-color: #8fcf18;
+  /* background-image: url(${back}),
     linear-gradient(
       112deg,
       rgba(255, 255, 255, 0.35) 0%,
@@ -20,9 +22,9 @@ export const Container = styled.div`
     );
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 
-  box-shadow: 0px 1px 24px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 120px 20px;
 
   @media screen and (min-width: 768px) {
     width: 500px;

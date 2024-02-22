@@ -12,7 +12,7 @@
 //   const draw = (frameCount: number, x: number, y: number) => {
 //     if (context) {
 //       context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-//       context.fillStyle = '#ffd700';
+//       context.fillStyle = '#e4f4a3';
 //       context.beginPath();
 
 //       context.arc(x, y, 20 * Math.sin(frameCount * 0.05) ** 2, 0, 2 * Math.PI);
@@ -72,7 +72,7 @@
 //   const draw = (frameCount: number) => {
 //     if (context) {
 //       context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-//       context.fillStyle = '#ffd700';
+//       context.fillStyle = '#e4f4a3';
 
 //       initialCoordinates.forEach(coord => {
 //         context.beginPath();
@@ -140,7 +140,7 @@
 //   const draw = () => {
 //     if (context) {
 //       context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-//       context.fillStyle = '#ffd700';
+//       context.fillStyle = '#e4f4a3';
 
 //       circles.forEach(circle => {
 //         context.beginPath();
@@ -235,7 +235,7 @@
 //       const ctx = canvas.getContext('2d');
 //       setContext(ctx);
 
-//       const colors = ['#ffd700', '#946a76', '#a77866'];
+//       const colors = ['#e4f4a3', '#946a76', '#a77866'];
 //       const newCircles = Array.from({ length: 80 }, () => ({
 //         x: Math.random() * canvas.width,
 //         y: Math.random() * canvas.height,
