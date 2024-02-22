@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import back from './back.png';
 
 export const Container = styled.div`
+  position: relative;
+  overflow: hidden;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -12,21 +13,22 @@ export const Container = styled.div`
   padding-top: 19px;
   padding-bottom: 19px;
   border-radius: 30px;
-  /* background-color: #ffb08f; */
   background-color: #8fcf18;
-  /* background-image: url(${back}),
-    linear-gradient(
-      112deg,
-      rgba(255, 255, 255, 0.35) 0%,
-      rgba(255, 255, 255, 0.1) 73.15%
-    );
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; */
 
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 120px 20px;
 
   @media screen and (min-width: 768px) {
     width: 500px;
+  }
+
+  &::before {
+    position: absolute;
+    top: 170px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 70px;
   }
 `;

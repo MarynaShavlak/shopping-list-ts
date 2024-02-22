@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Layout } from 'components/Layout';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 import { ItemProps } from './App.types';
-import { Canvas } from 'components/FruitFallGame/FruitFallGame';
+import { Canvas } from 'components/Canvas';
 
 export const App = () => {
   const [items, setItems] = useLocalStorage<ItemProps[]>('items', []);
@@ -35,7 +35,7 @@ export const App = () => {
     const isExist = isNameExist && isPriorityExist;
     if (isNameExist && isPriorityExist) {
       toast.error(
-        `Oops, the same todo item is already in your todo list. Please use another data`
+        `Oops, the same item is already in your shopping list. Please use another data`
       );
     }
     return isExist;
@@ -68,7 +68,7 @@ export const App = () => {
     <>
       <Canvas />
       <Layout>
-        <Container>
+        <Container className="app">
           <Section title="Shopping List">
             <AddTodoForm
               onSubmit={(item: Partial<ItemProps>) => addItem(item)}
@@ -83,7 +83,7 @@ export const App = () => {
                 onToggleStatus={toggleStatus}
               ></TodoItemsList>
             ) : (
-              <Notification message="There are no items in your todo list yet" />
+              <Notification message="There are no items in your shopping list yet" />
             )}
           </Section>
           <ToastContainer

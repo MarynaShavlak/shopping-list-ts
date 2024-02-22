@@ -8,9 +8,6 @@ export const Button = styled.button<ButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
-  color: #e4f4a3;
-  border: 2px solid #e4f4a3;
   border-radius: 5px;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
@@ -26,9 +23,14 @@ export const Button = styled.button<ButtonProps>`
     props.size === 'little' ? '10px' : '16px'};
   border: ${(props: ButtonProps) =>
     props.size === 'little' ? '1px solid #e4f4a3' : '2px solid #e4f4a3'};
+  color: ${(props: ButtonProps) =>
+    props.size === 'little' ? '#000' : '#e4f4a3'};
+  background-color: ${(props: ButtonProps) =>
+    props.size === 'little' ? '#e4f4a3' : 'transparent'};
 
   &:hover {
-    background-color: #e4f4a3;
+    background-color: ${(props: ButtonProps) =>
+      props.size === 'little' ? '#8fcf18;' : '#e4f4a3'};
     color: #000000;
   }
 
