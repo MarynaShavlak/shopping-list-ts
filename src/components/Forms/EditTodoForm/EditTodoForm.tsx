@@ -1,23 +1,28 @@
 import React, { FC, useState, FormEvent } from 'react';
-import { FormStyled } from './TodoForm.styled';
-import { AddButton } from 'components/AddButton';
+import { FormStyled } from './EditTodoForm.styled';
+import { TextButton } from 'components/Buttons/TextButton';
 import { ItemProps } from 'components/App/App';
 
-interface TodoFormProps {
-  onSubmit: (item: Partial<ItemProps>) => void;
+interface EditTodoFormProps {
+  item: ItemProps;
+  onSave: (updatedItem: ItemProps) => void;
+  onCancel: () => void;
 }
 
-interface TodoFormData {
+interface EditTodoFormData {
   title: string;
   priority: string;
 }
 
-export const TodoForm: FC<TodoFormProps> = ({ onSubmit }) => {
-  const initialFormData: TodoFormData = {
-    title: '',
-    priority: '1',
-  };
-  const [formData, setFormData] = useState<TodoFormData>(initialFormData);
+export const EditTodoForm: FC<EditTodoFormProps> = ({
+  item,
+  onSave,
+  onCancel,
+}) => {
+  const [formData, setFormData] = useState<EditTodoFormData>({
+    title: item.title,
+    priority: item.priority,
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -37,14 +42,21 @@ export const TodoForm: FC<TodoFormProps> = ({ onSubmit }) => {
     const trimmedTitle = title.trim();
     const trimmedPriority = priority.slice(0, 3);
     const newItem = { title: trimmedTitle, priority: trimmedPriority };
-    onSubmit(newItem);
-    setFormData(initialFormData);
+    onSave({ ...item, ...newItem });
   };
 
   return (
     <FormStyled onSubmit={handleSubmit}>
       <input
-        className="todo-form__input input--title"
+        className="edit-todo-form__input edit-input--priority"
+        type="text"
+        name="priority"
+        value={formData.priority}
+        onChange={handlePriorityChange}
+        required
+      />
+      <input
+        className="edit-todo-form__input edit-input--title"
         type="text"
         name="title"
         value={formData.title}
@@ -53,15 +65,13 @@ export const TodoForm: FC<TodoFormProps> = ({ onSubmit }) => {
         placeholder="Title..."
       />
 
-      <input
-        className="todo-form__input input--priority"
-        type="text"
-        name="priority"
-        value={formData.priority}
-        onChange={handlePriorityChange}
-        required
+      <TextButton label="Save" type="submit" size="little" />
+      <TextButton
+        label="Cancel"
+        onClick={onCancel}
+        type="button"
+        size="little"
       />
-      <AddButton />
     </FormStyled>
   );
 };

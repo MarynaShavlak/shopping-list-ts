@@ -4,7 +4,7 @@ import back from './back.png';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 438px;
+  width: 500px;
   min-height: 653px;
   padding-left: 23px;
   padding-right: 30px;

@@ -26,7 +26,8 @@ export const FormStyled = styled.form`
 
   .input--title {
     padding-left: 10px;
-    width: 192px;
+    flex-grow: 1;
+    /* width: 192px; */
   }
 
   .input--priority {
