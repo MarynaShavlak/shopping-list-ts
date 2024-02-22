@@ -1,12 +1,8 @@
-import React, { ReactElement } from 'react';
+import React, { FC } from 'react';
 import { SectionStyled } from './Section.styled';
+import { SectionProps } from './Section.types';
 
-interface SectionProps {
-  title?: string;
-  children: ReactElement;
-}
-
-export const Section = ({ title, children }: SectionProps) => {
+export const Section: FC<SectionProps> = ({ title, children }) => {
   return (
     <SectionStyled>
       {title && <h2 className="section__title">{title}</h2>}

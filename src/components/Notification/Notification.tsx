@@ -1,9 +1,7 @@
+import React, { FC } from 'react';
 import { NotificationMessage } from './Notification.styled';
+import { NotificationProps } from './Notification.types';
 
-interface NotificationProps {
-  message: string;
-}
-
-export const Notification = ({ message }: NotificationProps) => {
+export const Notification: FC<NotificationProps> = ({ message }) => {
   return <NotificationMessage>{message}</NotificationMessage>;
 };

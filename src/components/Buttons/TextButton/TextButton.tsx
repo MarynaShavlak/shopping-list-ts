@@ -1,12 +1,6 @@
 import React, { FC } from 'react';
 import { Button } from './TextButton.styled';
-
-interface TextButtonProps {
-  label: string;
-  onClick?: () => void;
-  type: 'button' | 'submit';
-  size?: 'big' | 'little';
-}
+import { TextButtonProps } from './TextButton.types';
 
 export const TextButton: FC<TextButtonProps> = ({
   label,

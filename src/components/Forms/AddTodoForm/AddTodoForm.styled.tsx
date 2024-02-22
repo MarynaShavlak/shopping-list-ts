@@ -9,7 +9,7 @@ export const FormStyled = styled.form`
     color: rgba(33, 33, 33, 0.7);
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-    font-size: 18.22px;
+    font-size: 14px;
     line-height: 1.22;
     letter-spacing: 0;
     padding-top: 6px;
@@ -18,6 +18,9 @@ export const FormStyled = styled.form`
     border: none;
     outline: none;
     border-radius: 3px;
+    @media screen and (min-width: 768px) {
+      font-size: 18px;
+    }
     &:focus {
       outline: none;
       border: 2px solid #ffd700;
@@ -26,12 +29,20 @@ export const FormStyled = styled.form`
 
   .input--title {
     padding-left: 10px;
-    flex-grow: 1;
-    /* width: 192px; */
+
+    @media screen and (max-width: 767px) {
+      width: calc(100% - 28px - 60px - 34px);
+    }
+    @media screen and (min-width: 768px) {
+      flex-grow: 1;
+    }
   }
 
   .input--priority {
-    width: 64px;
+    width: 34px;
     text-align: center;
+    @media screen and (min-width: 768px) {
+      width: 64px;
+    }
   }
 `;

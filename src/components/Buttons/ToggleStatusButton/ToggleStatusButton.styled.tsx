@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const ToggleStatusButtonStyled = styled.button`
   display: flex;
-  width: 30px;
-  height: 30px;
-  min-width: 30px;
-  min-height: 30px;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
   align-items: center;
   justify-content: center;
   background-color: transparent;
@@ -23,7 +23,12 @@ export const ToggleStatusButtonStyled = styled.button`
     }
   }
   svg {
-    fill: #ffd700;
     fill: #000000;
+  }
+  @media screen and (min-width: 768px) {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
   }
 `;

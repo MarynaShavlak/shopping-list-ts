@@ -1,23 +1,14 @@
 import React, { FC, useState, FormEvent } from 'react';
 import { FormStyled } from './AddTodoForm.styled';
 import { TextButton } from 'components/Buttons/TextButton';
-import { ItemProps } from 'components/App/App';
+import { AddTodoFormData, AddTodoFormProps } from './AddTodoForm.types';
 
-interface TodoFormProps {
-  onSubmit: (item: Partial<ItemProps>) => void;
-}
-
-interface TodoFormData {
-  title: string;
-  priority: string;
-}
-
-export const AddTodoForm: FC<TodoFormProps> = ({ onSubmit }) => {
-  const initialFormData: TodoFormData = {
+export const AddTodoForm: FC<AddTodoFormProps> = ({ onSubmit }) => {
+  const initialFormData: AddTodoFormData = {
     title: '',
     priority: '1',
   };
-  const [formData, setFormData] = useState<TodoFormData>(initialFormData);
+  const [formData, setFormData] = useState<AddTodoFormData>(initialFormData);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

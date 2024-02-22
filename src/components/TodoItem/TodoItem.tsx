@@ -4,14 +4,8 @@ import { EditButton } from 'components/Buttons/EditButton';
 import { ToggleStatusButton } from 'components/Buttons/ToggleStatusButton';
 import { Priority, Title } from './TodoItem.styled';
 import { EditTodoForm } from 'components/Forms/EditTodoForm';
-import { ItemProps } from 'components/App/App';
-
-interface TodoItemProps {
-  item: ItemProps;
-  onDeleteItem: (itemId: string) => void;
-  onUpdateItem: (updatedItem: ItemProps) => void;
-  onToggleStatus: (itemId: string) => void;
-}
+import { ItemProps } from 'components/App/App.types';
+import { TodoItemProps } from './TodoItem.types';
 
 export const TodoItem: FC<TodoItemProps> = ({
   item,

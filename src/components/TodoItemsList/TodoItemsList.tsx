@@ -1,14 +1,7 @@
 import React, { FC } from 'react';
 import { List, Item } from './TodoItemsList.styled';
 import { TodoItem } from 'components/TodoItem';
-import { ItemProps } from 'components/App/App';
-
-interface TodoItemsListProps {
-  items: ItemProps[];
-  onDeleteItem: (itemId: string) => void;
-  onUpdateItem: (editedItem: ItemProps) => void;
-  onToggleStatus: (itemId: string) => void;
-}
+import { TodoItemsListProps } from './TodoItemsList.types';
 
 export const TodoItemsList: FC<TodoItemsListProps> = ({
   items,

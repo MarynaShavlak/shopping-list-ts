@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import back from './back.png';
 
 export const Container = styled.div`
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 280px;
   min-height: 653px;
   padding-left: 23px;
   padding-right: 30px;
@@ -22,4 +23,8 @@ export const Container = styled.div`
   background-repeat: no-repeat;
 
   box-shadow: 0px 1px 24px -1px rgba(0, 0, 0, 0.1);
+
+  @media screen and (min-width: 768px) {
+    width: 500px;
+  }
 `;

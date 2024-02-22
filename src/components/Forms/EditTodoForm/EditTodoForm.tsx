@@ -1,18 +1,7 @@
 import React, { FC, useState, FormEvent } from 'react';
 import { FormStyled } from './EditTodoForm.styled';
 import { TextButton } from 'components/Buttons/TextButton';
-import { ItemProps } from 'components/App/App';
-
-interface EditTodoFormProps {
-  item: ItemProps;
-  onSave: (updatedItem: ItemProps) => void;
-  onCancel: () => void;
-}
-
-interface EditTodoFormData {
-  title: string;
-  priority: string;
-}
+import { EditTodoFormData, EditTodoFormProps } from './EditTodoForm.types';
 
 export const EditTodoForm: FC<EditTodoFormProps> = ({
   item,

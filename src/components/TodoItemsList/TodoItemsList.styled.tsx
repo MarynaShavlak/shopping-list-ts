@@ -11,9 +11,12 @@ export const List = styled.ul`
 export const Item = styled.li`
   margin: 0;
   display: flex;
-  column-gap: 15px;
-  padding-left: 21px;
+  column-gap: 10px;
   padding-bottom: 6px;
   align-items: center;
   border-bottom: 1px solid #ffd700;
+  @media screen and (min-width: 768px) {
+    padding-left: 21px;
+    column-gap: 15px;
+  }
 `;

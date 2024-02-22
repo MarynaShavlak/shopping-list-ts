@@ -1,10 +1,7 @@
 import React, { FC } from 'react';
 import { DeleteButtonStyled } from './DeleteButton.styled';
 import { IoClose } from 'react-icons/io5';
-
-interface DeleteButtonProps {
-  onClick: () => void;
-}
+import { DeleteButtonProps } from './DeleteButton.types';
 
 export const DeleteButton: FC<DeleteButtonProps> = ({ onClick }) => {
   return (

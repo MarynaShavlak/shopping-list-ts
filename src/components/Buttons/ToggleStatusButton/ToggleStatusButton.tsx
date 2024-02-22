@@ -2,11 +2,7 @@ import React, { FC } from 'react';
 import { ToggleStatusButtonStyled } from './ToggleStatusButton.styled';
 import { FaMinus } from 'react-icons/fa';
 import { IoMdDoneAll } from 'react-icons/io';
-
-interface ToggleStatusButtonProps {
-  onClick: () => void;
-  status: boolean;
-}
+import { ToggleStatusButtonProps } from './ToggleStatusButton.types';
 
 export const ToggleStatusButton: FC<ToggleStatusButtonProps> = ({
   status,

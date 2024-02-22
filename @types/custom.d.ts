@@ -9,3 +9,7 @@ declare module '*.png' {
 }
 
 declare module 'styled-components';
+
+declare module 'nanoid' {
+  export default function nanoid(size?: number): string;
+}

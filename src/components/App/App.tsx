@@ -1,5 +1,5 @@
 import React from 'react';
-import { nanoid } from 'nanoid';
+import { v4 as uuidv4 } from 'uuid';
 import { Container } from './App.styled';
 import { Section } from 'components/Section';
 import { AddTodoForm } from 'components/Forms/AddTodoForm';
@@ -8,13 +8,8 @@ import { Notification } from 'components/Notification';
 import { ToastContainer, toast } from 'react-toastify';
 import { Layout } from 'components/Layout';
 import { useLocalStorage } from 'hooks/useLocalStorage';
-
-export interface ItemProps {
-  id: string;
-  title: string;
-  priority: string;
-  status: boolean;
-}
+import { ItemProps } from './App.types';
+import { Canvas } from 'components/FruitFallGame/FruitFallGame';
 
 export const App = () => {
   const [items, setItems] = useLocalStorage<ItemProps[]>('items', []);
@@ -23,7 +18,7 @@ export const App = () => {
     if (checkItemInList(item)) return;
 
     const itemWithId = {
-      id: nanoid(),
+      id: uuidv4(),
       title: item.title || '',
       priority: item.priority || '',
       status: false,
@@ -70,33 +65,38 @@ export const App = () => {
   const hasItemsInList = items.length !== 0;
 
   return (
-    <Layout>
-      <Container>
-        <Section title="Shopping List">
-          <AddTodoForm onSubmit={(item: Partial<ItemProps>) => addItem(item)} />
-        </Section>
-        <Section>
-          {hasItemsInList ? (
-            <TodoItemsList
-              items={items}
-              onDeleteItem={deleteItem}
-              onUpdateItem={editItem}
-              onToggleStatus={toggleStatus}
-            ></TodoItemsList>
-          ) : (
-            <Notification message="There are no items in your todo list yet" />
-          )}
-        </Section>
-        <ToastContainer
-          position="top-right"
-          newestOnTop={false}
-          closeOnClick
-          pauseOnFocusLoss
-          pauseOnHover={false}
-          theme="colored"
-          autoClose={4000}
-        />
-      </Container>
-    </Layout>
+    <>
+      <Canvas />
+      <Layout>
+        <Container>
+          <Section title="Shopping List">
+            <AddTodoForm
+              onSubmit={(item: Partial<ItemProps>) => addItem(item)}
+            />
+          </Section>
+          <Section>
+            {hasItemsInList ? (
+              <TodoItemsList
+                items={items}
+                onDeleteItem={deleteItem}
+                onUpdateItem={editItem}
+                onToggleStatus={toggleStatus}
+              ></TodoItemsList>
+            ) : (
+              <Notification message="There are no items in your todo list yet" />
+            )}
+          </Section>
+          <ToastContainer
+            position="top-right"
+            newestOnTop={false}
+            closeOnClick
+            pauseOnFocusLoss
+            pauseOnHover={false}
+            theme="colored"
+            autoClose={4000}
+          />
+        </Container>
+      </Layout>
+    </>
   );
 };

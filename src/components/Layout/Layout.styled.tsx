@@ -1,16 +1,23 @@
 import styled from 'styled-components';
-import backImg from './main-back.png';
 
 export const LayoutStyled = styled.main`
   display: flex;
   flex-direction: column;
-  padding-left: 124px;
-  padding-top: 58px;
-  padding-bottom: 57px;
-  max-width: 1366px;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  width: 300px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin: 0 auto;
-  background-image: url(${backImg});
-  background-size: 732px auto;
-  background-position: right top;
-  background-repeat: no-repeat;
+  @media screen and (min-width: 768px) {
+    width: 738px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 `;
