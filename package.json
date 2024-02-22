@@ -1,8 +1,8 @@
 {
-  "name": "coax-software-todo-list",
+  "name": "shopping-list",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://MarynaShavlak.github.io/coax-software-todo-list/",
+  "homepage": "https://MarynaShavlak.github.io/shopping-list/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
