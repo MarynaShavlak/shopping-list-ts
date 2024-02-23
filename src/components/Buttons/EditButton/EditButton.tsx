@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { EditButtonStyled } from './EditButton.styled';
-import { AiFillEdit } from 'react-icons/ai';
-import { EditButtonProps } from './EditButton.types';
+import { GrEdit } from 'react-icons/gr';
+import { CommonIconBtnProps } from '../Buttons.types';
 
-export const EditButton: FC<EditButtonProps> = ({ onClick }) => {
+export const EditButton: FC<CommonIconBtnProps> = ({ onClick }) => {
   return (
     <EditButtonStyled type="button" onClick={onClick} aria-label="Edit item">
-      <AiFillEdit />
+      <GrEdit />
     </EditButtonStyled>
   );
 };

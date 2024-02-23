@@ -6,5 +6,5 @@ export interface AddTodoFormProps {
 
 export interface AddTodoFormData {
   title: string;
-  priority: string;
+  quantity: string;
 }

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { CommonIconBtnProps } from '../Buttons.types';
 
 export const ToggleStatusButtonStyled = styled.button`
   display: flex;
@@ -14,17 +15,19 @@ export const ToggleStatusButtonStyled = styled.button`
   border: 1px solid transparent;
   border-radius: 50%;
   cursor: pointer;
-  transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
-  &:hover {
-    background-color: transparent;
-    border: 1px solid #8fcf18;
-    svg {
-      fill: #8fcf18;
-    }
-  }
   svg {
-    fill: #00000088;
-    transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    fill: #000;
+    transition: fill 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  transition: background-color 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover {
+    background-color: ${(props: CommonIconBtnProps) =>
+      props.status === true ? 'transparent' : '#8fcf18'};
+
+    svg {
+      fill: ${(props: CommonIconBtnProps) =>
+        props.status === true ? '#fff' : '#000'};
+    }
   }
   @media screen and (min-width: 768px) {
     width: 30px;

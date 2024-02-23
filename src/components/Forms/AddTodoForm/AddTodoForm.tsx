@@ -6,7 +6,7 @@ import { AddTodoFormData, AddTodoFormProps } from './AddTodoForm.types';
 export const AddTodoForm: FC<AddTodoFormProps> = ({ onSubmit }) => {
   const initialFormData: AddTodoFormData = {
     title: '',
-    priority: '1',
+    quantity: '1',
   };
   const [formData, setFormData] = useState<AddTodoFormData>(initialFormData);
 
@@ -15,7 +15,7 @@ export const AddTodoForm: FC<AddTodoFormProps> = ({ onSubmit }) => {
     setFormData(prevData => ({ ...prevData, [name]: value }));
   };
 
-  const handlePriorityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     if (/^[1-9]\d*$/.test(inputValue) || inputValue === '') {
       handleChange(e);
@@ -24,10 +24,10 @@ export const AddTodoForm: FC<AddTodoFormProps> = ({ onSubmit }) => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const { title, priority } = formData;
+    const { title, quantity } = formData;
     const trimmedTitle = title.trim();
-    const trimmedPriority = priority.slice(0, 3);
-    const newItem = { title: trimmedTitle, priority: trimmedPriority };
+    const trimmedQuantity = quantity.slice(0, 3);
+    const newItem = { title: trimmedTitle, quantity: trimmedQuantity };
     onSubmit(newItem);
     setFormData(initialFormData);
   };
@@ -45,11 +45,11 @@ export const AddTodoForm: FC<AddTodoFormProps> = ({ onSubmit }) => {
       />
 
       <input
-        className="todo-form__input input--priority"
+        className="todo-form__input input--quantity"
         type="text"
-        name="priority"
-        value={formData.priority}
-        onChange={handlePriorityChange}
+        name="quantity"
+        value={formData.quantity}
+        onChange={handleQuantityChange}
         required
       />
       <TextButton label="Add" type="submit" />

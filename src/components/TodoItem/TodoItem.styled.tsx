@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Priority = styled.span`
+export const Quantity = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;

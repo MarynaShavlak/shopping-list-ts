@@ -20,7 +20,7 @@ export const App = () => {
     const itemWithId = {
       id: uuidv4(),
       title: item.title || '',
-      priority: item.priority || '',
+      quantity: item.quantity || '',
       status: false,
     };
     setItems([itemWithId, ...items]);
@@ -29,11 +29,11 @@ export const App = () => {
   const checkItemInList = (item: Partial<ItemProps>): boolean => {
     const filteredItems = items.filter(el => el.id !== item.id);
     const isNameExist = filteredItems.some(el => el.title === item.title);
-    const isPriorityExist = filteredItems.some(
-      el => el.priority === item.priority
+    const isQuantityExist = filteredItems.some(
+      el => el.quantity === item.quantity
     );
-    const isExist = isNameExist && isPriorityExist;
-    if (isNameExist && isPriorityExist) {
+    const isExist = isNameExist && isQuantityExist;
+    if (isNameExist && isQuantityExist) {
       toast.error(
         `Oops, the same item is already in your shopping list. Please use another data`
       );

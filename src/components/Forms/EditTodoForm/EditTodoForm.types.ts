@@ -8,5 +8,5 @@ export interface EditTodoFormProps {
 
 export interface EditTodoFormData {
   title: string;
-  priority: string;
+  quantity: string;
 }

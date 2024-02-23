@@ -1,4 +1,4 @@
-export interface ToggleStatusButtonProps {
+export interface CommonIconBtnProps {
   onClick: () => void;
   status: boolean;
 }

@@ -38,7 +38,7 @@ export const FormStyled = styled.form`
     }
   }
 
-  .input--priority {
+  .input--quantity {
     width: 34px;
     text-align: center;
     @media screen and (min-width: 768px) {

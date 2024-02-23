@@ -23,12 +23,15 @@ export const Container = styled.div`
 
   &::before {
     position: absolute;
-    top: 170px;
+    top: 140px;
     left: 0;
     content: '';
     width: 100%;
     height: 100%;
     background-color: #fff;
     border-radius: 70px;
+    @media screen and (min-width: 768px) {
+      top: 170px;
+    }
   }
 `;

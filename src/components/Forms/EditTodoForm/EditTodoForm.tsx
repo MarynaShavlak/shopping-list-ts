@@ -10,7 +10,7 @@ export const EditTodoForm: FC<EditTodoFormProps> = ({
 }) => {
   const [formData, setFormData] = useState<EditTodoFormData>({
     title: item.title,
-    priority: item.priority,
+    quantity: item.quantity,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,7 +18,7 @@ export const EditTodoForm: FC<EditTodoFormProps> = ({
     setFormData(prevData => ({ ...prevData, [name]: value }));
   };
 
-  const handlePriorityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     if (/^[1-9]\d*$/.test(inputValue) || inputValue === '') {
       handleChange(e);
@@ -27,21 +27,21 @@ export const EditTodoForm: FC<EditTodoFormProps> = ({
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const { title, priority } = formData;
+    const { title, quantity } = formData;
     const trimmedTitle = title.trim();
-    const trimmedPriority = priority.slice(0, 3);
-    const newItem = { title: trimmedTitle, priority: trimmedPriority };
+    const trimmedQuantity = quantity.slice(0, 3);
+    const newItem = { title: trimmedTitle, quantity: trimmedQuantity };
     onSave({ ...item, ...newItem });
   };
 
   return (
     <FormStyled onSubmit={handleSubmit}>
       <input
-        className="edit-todo-form__input edit-input--priority"
+        className="edit-todo-form__input edit-input--quantity"
         type="text"
-        name="priority"
-        value={formData.priority}
-        onChange={handlePriorityChange}
+        name="quantity"
+        value={formData.quantity}
+        onChange={handleQuantityChange}
         required
       />
       <input

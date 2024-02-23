@@ -10,7 +10,7 @@ export const TodoItemsList: FC<TodoItemsListProps> = ({
   return (
     <List>
       {items.map(item => (
-        <Item key={item.id}>
+        <Item key={item.id} status={item.status}>
           <TodoItem item={item} {...otherProps} />
         </Item>
       ))}

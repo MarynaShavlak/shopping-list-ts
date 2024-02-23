@@ -1,6 +1,6 @@
 export interface ItemProps {
   id: string;
   title: string;
-  priority: string;
+  quantity: string;
   status: boolean;
 }

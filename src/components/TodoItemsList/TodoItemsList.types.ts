@@ -6,3 +6,7 @@ export interface TodoItemsListProps {
   onUpdateItem: (editedItem: ItemProps) => void;
   onToggleStatus: (itemId: string) => void;
 }
+
+export interface ListElProps {
+  status?: true | false;
+}
