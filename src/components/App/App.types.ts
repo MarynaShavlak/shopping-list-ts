@@ -3,4 +3,7 @@ export interface ItemProps {
   title: string;
   quantity: string;
   status: boolean;
+  unit: Unit;
 }
+
+export type Unit = 'pcs' | 'kg' | 'g' | 'litre';

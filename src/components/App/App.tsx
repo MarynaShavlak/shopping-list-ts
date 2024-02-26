@@ -8,13 +8,14 @@ import { Notification } from 'components/Notification';
 import { ToastContainer, toast } from 'react-toastify';
 import { Layout } from 'components/Layout';
 import { useLocalStorage } from 'hooks/useLocalStorage';
-import { ItemProps } from './App.types';
+import { ItemProps, Unit } from './App.types';
 import { Canvas } from 'components/Canvas';
 
 export const App = () => {
   const [items, setItems] = useLocalStorage<ItemProps[]>('items', []);
 
   const addItem = (item: Partial<ItemProps>) => {
+    console.log('item: ', item);
     if (checkItemInList(item)) return;
 
     const itemWithId = {
@@ -22,6 +23,7 @@ export const App = () => {
       title: item.title || '',
       quantity: item.quantity || '',
       status: false,
+      unit: item.unit as Unit,
     };
     setItems([itemWithId, ...items]);
   };
@@ -66,7 +68,7 @@ export const App = () => {
 
   return (
     <>
-      <Canvas />
+      {/* <Canvas /> */}
       <Layout>
         <Container className="app">
           <Section title="Shopping List">

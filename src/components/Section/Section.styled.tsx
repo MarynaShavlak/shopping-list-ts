@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SectionStyled = styled.section`
-  z-index: 2;
+  /* z-index: 1; */
   .section__title {
     margin: 0 0 36px 0;
     text-align: center;

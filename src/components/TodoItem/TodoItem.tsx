@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { DeleteButton } from 'components/Buttons/DeleteButton';
 import { EditButton } from 'components/Buttons/EditButton';
 import { ToggleStatusButton } from 'components/Buttons/ToggleStatusButton';
-import { Quantity, Title } from './TodoItem.styled';
+import { Quantity, Title, UnitEl } from './TodoItem.styled';
 import { EditTodoForm } from 'components/Forms/EditTodoForm';
 import { ItemProps } from 'components/App/App.types';
 import { TodoItemProps } from './TodoItem.types';
@@ -13,7 +13,7 @@ export const TodoItem: FC<TodoItemProps> = ({
   onToggleStatus,
   onUpdateItem,
 }) => {
-  const { id, title, quantity, status } = item;
+  const { id, title, quantity, status, unit } = item;
   const [isEditing, setIsEditing] = useState(false);
 
   const handleEdit = () => {
@@ -40,6 +40,7 @@ export const TodoItem: FC<TodoItemProps> = ({
             status={status}
           />
           <Quantity>{quantity}</Quantity>
+          <UnitEl>{unit}</UnitEl>
           <Title>{title}</Title>
 
           {!status && <EditButton onClick={handleEdit} status={status} />}

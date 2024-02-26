@@ -1,4 +1,4 @@
-import { ItemProps } from 'components/App/App.types';
+import { ItemProps, Unit } from 'components/App/App.types';
 
 export interface EditTodoFormProps {
   item: ItemProps;
@@ -9,4 +9,5 @@ export interface EditTodoFormProps {
 export interface EditTodoFormData {
   title: string;
   quantity: string;
+  unit: Unit;
 }

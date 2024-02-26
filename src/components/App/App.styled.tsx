@@ -33,5 +33,6 @@ export const Container = styled.div`
     @media screen and (min-width: 768px) {
       top: 170px;
     }
+    z-index: -1;
   }
 `;

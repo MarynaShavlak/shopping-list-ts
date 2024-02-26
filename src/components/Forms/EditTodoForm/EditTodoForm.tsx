@@ -11,6 +11,7 @@ export const EditTodoForm: FC<EditTodoFormProps> = ({
   const [formData, setFormData] = useState<EditTodoFormData>({
     title: item.title,
     quantity: item.quantity,
+    unit: item.unit,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
