@@ -13,10 +13,7 @@ export const DropDownEl = styled.div`
   font-size: 10px;
   line-height: 1.22;
   letter-spacing: 0;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
+
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border: none;
   outline: none;
@@ -25,6 +22,10 @@ export const DropDownEl = styled.div`
   border-radius: 3px;
   @media screen and (min-width: 768px) {
     font-size: 14px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
   &:focus {
     outline: none;
@@ -47,12 +48,15 @@ export const DropDownEl = styled.div`
   .units-list {
     content: '';
     max-height: fit-content;
-    width: 45px;
+    width: 35px;
     background-color: #e4f4a3;
     border-radius: 4px;
     z-index: 4;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
       rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    @media screen and (min-width: 768px) {
+      width: 45px;
+    }
   }
 
   .units-list__item {

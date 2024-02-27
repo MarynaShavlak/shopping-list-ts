@@ -67,7 +67,7 @@ export const App = () => {
 
   return (
     <>
-      {/* <Canvas /> */}
+      <Canvas />
       <Layout>
         <Container className="app">
           <Section title="Shopping List">

@@ -4,7 +4,6 @@ canvas {
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* background-color: #d6fffc; */
   background-color: #e4f4a3;
-  filter: blur(2px);
+  filter: blur(4px);
 }
