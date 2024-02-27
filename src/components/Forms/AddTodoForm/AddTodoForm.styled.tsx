@@ -15,8 +15,9 @@ export const FormStyled = styled.form`
     padding-top: 6px;
     padding-bottom: 6px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    border: none;
+    border: 2px solid transparent;
     outline: none;
+
     border-radius: 3px;
     @media screen and (min-width: 768px) {
       font-size: 18px;
@@ -46,7 +47,7 @@ export const FormStyled = styled.form`
     }
   }
 
-  .todo-form__units {
+  /* .todo-form__units {
     position: relative;
     display: flex;
     align-items: center;
@@ -133,5 +134,5 @@ export const FormStyled = styled.form`
       opacity: 0;
       transition: opacity 300ms;
     }
-  }
+  } */
 `;

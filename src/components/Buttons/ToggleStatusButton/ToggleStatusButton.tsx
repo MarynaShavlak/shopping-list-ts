@@ -1,21 +1,21 @@
-import React, { FC } from 'react';
-import { ToggleStatusButtonStyled } from './ToggleStatusButton.styled';
+import { FC } from 'react';
 import { FaMinus } from 'react-icons/fa';
 import { IoMdDoneAll } from 'react-icons/io';
 import { CommonIconBtnProps } from '../Buttons.types';
+import { IconButton } from '../IconButton';
 
 export const ToggleStatusButton: FC<CommonIconBtnProps> = ({
-  status,
   onClick,
+  status,
 }) => {
   return (
-    <ToggleStatusButtonStyled
-      type="button"
+    <IconButton
       onClick={onClick}
-      aria-label="Toggle item status"
       status={status}
+      label="Delete item"
+      rounded={true}
     >
       {status ? <IoMdDoneAll /> : <FaMinus />}
-    </ToggleStatusButtonStyled>
+    </IconButton>
   );
 };

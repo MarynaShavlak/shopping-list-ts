@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { CommonIconBtnProps } from '../Buttons.types';
+import { IconButtonProps } from './IconButton.types';
 
-export const ToggleStatusButtonStyled = styled.button`
+export const IconButtonStyled = styled.button<IconButtonProps>`
   display: flex;
   width: 20px;
   height: 20px;
@@ -9,26 +9,26 @@ export const ToggleStatusButtonStyled = styled.button`
   min-height: 20px;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
-  background-color: #8fcf18;
-  color: #8fcf18;
-  border: 1px solid transparent;
-  border-radius: 50%;
+  background-color: ${(props: IconButtonProps) =>
+    props.rounded === true ? '#8fcf18' : 'transparent'};
+  border: none;
+  border-radius: ${(props: IconButtonProps) =>
+    props.rounded === true ? '50%' : '3px'};
   cursor: pointer;
   svg {
-    fill: #000;
     transition: fill 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   transition: background-color 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
   &:hover {
-    background-color: ${(props: CommonIconBtnProps) =>
+    background-color: ${(props: IconButtonProps) =>
       props.status === true ? 'transparent' : '#8fcf18'};
 
     svg {
-      fill: ${(props: CommonIconBtnProps) =>
-        props.status === true ? '#fff' : '#000'};
+      fill: ${(props: IconButtonProps) =>
+        props.status === true ? '#fff' : '#fff'};
     }
   }
+
   @media screen and (min-width: 768px) {
     width: 30px;
     height: 30px;

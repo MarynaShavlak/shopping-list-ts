@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
-import { EditButtonStyled } from './EditButton.styled';
+import { FC } from 'react';
 import { GrEdit } from 'react-icons/gr';
 import { CommonIconBtnProps } from '../Buttons.types';
+import { IconButton } from '../IconButton';
 
-export const EditButton: FC<CommonIconBtnProps> = ({ onClick }) => {
+export const EditButton: FC<CommonIconBtnProps> = ({ onClick, status }) => {
   return (
-    <EditButtonStyled type="button" onClick={onClick} aria-label="Edit item">
+    <IconButton onClick={onClick} label="Edit item" status={status}>
       <GrEdit />
-    </EditButtonStyled>
+    </IconButton>
   );
 };

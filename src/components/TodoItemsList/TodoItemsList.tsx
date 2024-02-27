@@ -7,13 +7,11 @@ export const TodoItemsList: FC<TodoItemsListProps> = ({
   items,
   ...otherProps
 }) => {
-  return (
-    <List>
-      {items.map(item => (
-        <Item key={item.id} status={item.status}>
-          <TodoItem item={item} {...otherProps} />
-        </Item>
-      ))}
-    </List>
-  );
+  const renderList = items.map(item => (
+    <Item key={item.id} status={item.status}>
+      <TodoItem item={item} {...otherProps} />
+    </Item>
+  ));
+
+  return <List>{renderList}</List>;
 };

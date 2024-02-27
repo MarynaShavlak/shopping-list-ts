@@ -11,7 +11,7 @@ import { FormStyled } from './AddTodoForm.styled';
 import { TextButton } from 'components/Buttons/TextButton';
 import { Unit } from 'components/App/App.types';
 import { AddTodoFormData, AddTodoFormProps } from './AddTodoForm.types';
-import { DropDown } from 'components/DropDown';
+import { UnitDropDown } from 'components/UnitDropDown';
 
 const initialFormData: AddTodoFormData = {
   title: '',
@@ -27,9 +27,7 @@ export const AddTodoForm: FC<AddTodoFormProps> = ({ onSubmit }) => {
   const refToggleDropdown = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleClickOutside: Parameters<
-      Document['addEventListener']
-    >[1] = e => {
+    const handleClickOutside = (e: Event) => {
       if (
         isDropDownOpen &&
         refToggleDropdown.current &&
@@ -46,7 +44,7 @@ export const AddTodoForm: FC<AddTodoFormProps> = ({ onSubmit }) => {
     };
   }, [isDropDownOpen]);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prevData => ({ ...prevData, [name]: value }));
   };
@@ -54,7 +52,7 @@ export const AddTodoForm: FC<AddTodoFormProps> = ({ onSubmit }) => {
   const handleQuantityChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     if (/^[1-9]\d*$/.test(inputValue) || inputValue === '') {
-      handleChange(e);
+      handleInputChange(e);
     }
   };
 
@@ -76,7 +74,7 @@ export const AddTodoForm: FC<AddTodoFormProps> = ({ onSubmit }) => {
     setIsDropDownOpen(prevState => !prevState);
   };
 
-  const handleChangeUnits = (unit: Unit, e: MouseEvent<HTMLLIElement>) => {
+  const handleInputChangeUnits = (unit: Unit, e: MouseEvent<HTMLLIElement>) => {
     e.stopPropagation();
     setFormData(prevData => ({ ...prevData, unit: unit }));
     handleToggleDropDown();
@@ -89,7 +87,7 @@ export const AddTodoForm: FC<AddTodoFormProps> = ({ onSubmit }) => {
         type="text"
         name="title"
         value={formData.title}
-        onChange={handleChange}
+        onChange={handleInputChange}
         required
         placeholder="Title..."
       />
@@ -102,27 +100,15 @@ export const AddTodoForm: FC<AddTodoFormProps> = ({ onSubmit }) => {
         onChange={handleQuantityChange}
         required
       />
-      <div
-        className="todo-form__units"
-        onClick={handleToggleDropDown}
-        ref={refToggleDropdown}
-      >
-        <span>{formData.unit}</span>
-        <DropDown isOpen={isDropDownOpen} className="drop-down-el">
-          <ul className="units-list">
-            {allowedUnits.map(unit => (
-              <li
-                key={unit}
-                className="units-list__item"
-                onClick={e => handleChangeUnits(unit, e)}
-              >
-                {unit}
-              </li>
-            ))}
-          </ul>
-        </DropDown>
-      </div>
 
+      <UnitDropDown
+        unit={formData.unit}
+        isOpen={isDropDownOpen}
+        toggleDropDown={handleToggleDropDown}
+        handleInputChangeUnits={handleInputChangeUnits}
+        allowedUnits={allowedUnits}
+        refToggleDropdown={refToggleDropdown}
+      />
       <TextButton label="Add" type="submit" />
     </FormStyled>
   );

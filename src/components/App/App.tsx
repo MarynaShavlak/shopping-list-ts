@@ -15,7 +15,6 @@ export const App = () => {
   const [items, setItems] = useLocalStorage<ItemProps[]>('items', []);
 
   const addItem = (item: Partial<ItemProps>) => {
-    console.log('item: ', item);
     if (checkItemInList(item)) return;
 
     const itemWithId = {
