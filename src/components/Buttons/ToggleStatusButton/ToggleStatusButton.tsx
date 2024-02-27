@@ -1,13 +1,12 @@
 import { FC } from 'react';
 import { FaMinus } from 'react-icons/fa';
 import { IoMdDoneAll } from 'react-icons/io';
-import { CommonIconBtnProps } from '../Buttons.types';
+import { IconButtonProps } from '../IconButton/IconButton.types';
 import { IconButton } from '../IconButton';
 
-export const ToggleStatusButton: FC<CommonIconBtnProps> = ({
-  onClick,
-  status,
-}) => {
+export const ToggleStatusButton: FC<
+  Pick<IconButtonProps, 'status' | 'onClick'>
+> = ({ onClick, status }) => {
   return (
     <IconButton
       onClick={onClick}

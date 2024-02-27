@@ -17,7 +17,7 @@ export const TodoItem: FC<TodoItemProps> = ({
   const [isEditing, setIsEditing] = useState(false);
 
   const handleEdit = () => {
-    setIsEditing(true);
+    setIsEditing(prevState => !prevState);
   };
 
   const handleSave = (updatedItem: ItemProps) => {
@@ -25,26 +25,25 @@ export const TodoItem: FC<TodoItemProps> = ({
     setIsEditing(false);
   };
 
+  const handleToggleStatus = () => {
+    onToggleStatus(id);
+  };
+  const handleDelete = () => {
+    onDeleteItem(id);
+  };
+
   return (
     <>
       {isEditing ? (
-        <EditTodoForm
-          item={item}
-          onSave={handleSave}
-          onCancel={() => setIsEditing(false)}
-        />
+        <EditTodoForm item={item} onSave={handleSave} onCancel={handleEdit} />
       ) : (
         <>
-          <ToggleStatusButton
-            onClick={() => onToggleStatus(id)}
-            status={status}
-          />
+          <ToggleStatusButton onClick={handleToggleStatus} status={status} />
           <Quantity>{quantity}</Quantity>
           <UnitEl>{unit}</UnitEl>
           <Title>{title}</Title>
-
           {!status && <EditButton onClick={handleEdit} status={status} />}
-          <DeleteButton onClick={() => onDeleteItem(id)} status={status} />
+          <DeleteButton onClick={handleDelete} status={status} />
         </>
       )}
     </>
