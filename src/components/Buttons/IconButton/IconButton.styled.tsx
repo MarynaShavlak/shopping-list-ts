@@ -9,23 +9,29 @@ export const IconButtonStyled = styled.button<IconButtonProps>`
   min-height: 20px;
   align-items: center;
   justify-content: center;
-  background-color: ${(props: IconButtonProps) =>
-    props.rounded === true ? '#8fcf18' : 'transparent'};
+  background-color: ${({ rounded }: IconButtonProps) =>
+    rounded === true ? '#8fcf18' : 'transparent'};
   border: none;
-  border-radius: ${(props: IconButtonProps) =>
-    props.rounded === true ? '50%' : '3px'};
+  border-radius: ${({ rounded }: IconButtonProps) =>
+    rounded === true ? '50%' : '3px'};
   cursor: pointer;
   svg {
+    fill: ${({ status }: IconButtonProps) =>
+      status === true ? '#fff' : '#000'};
+    stroke: ${({ status }: IconButtonProps) =>
+      status === true ? '#fff' : '#000'};
     transition: fill 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   transition: background-color 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
   &:hover {
-    background-color: ${(props: IconButtonProps) =>
-      props.status === true ? 'transparent' : '#8fcf18'};
+    background-color: ${({ status }: IconButtonProps) =>
+      status === true ? 'transparent' : '#8fcf18'};
 
     svg {
-      fill: ${(props: IconButtonProps) =>
-        props.status === true ? '#fff' : '#fff'};
+      fill: ${({ status }: IconButtonProps) =>
+        status === true ? '#000' : '#fff'};
+      stroke: ${({ status }: IconButtonProps) =>
+        status === true ? '#000' : '#fff'};
     }
   }
 

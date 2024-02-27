@@ -39,9 +39,9 @@ export const TodoItem: FC<TodoItemProps> = ({
       ) : (
         <>
           <ToggleStatusButton onClick={handleToggleStatus} status={status} />
-          <Quantity>{quantity}</Quantity>
+          <Quantity status={status}>{quantity}</Quantity>
           <UnitEl>{unit}</UnitEl>
-          <Title>{title}</Title>
+          <Title status={status}>{title}</Title>
           {!status && <EditButton onClick={handleEdit} status={status} />}
           <DeleteButton onClick={handleDelete} status={status} />
         </>

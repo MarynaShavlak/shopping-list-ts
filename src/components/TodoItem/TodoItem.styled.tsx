@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { InputProps } from './TodoItem.types';
 
-export const Quantity = styled.span`
+export const Quantity = styled.span<InputProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,10 +10,11 @@ export const Quantity = styled.span`
   height: 30px;
   min-width: 30px;
   min-height: 30px;
-  color: #000000;
+  color: ${(props: InputProps) => (props.status === true ? '#fff' : '#000')};
   font-size: 14px;
   font-weight: 700;
-  background-color: #fff;
+  background-color: ${(props: InputProps) =>
+    props.status === true ? 'transparent' : '#fff'};
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
@@ -35,8 +37,8 @@ export const UnitEl = styled.span`
   }
 `;
 
-export const Title = styled.span`
-  color: #000000;
+export const Title = styled.span<InputProps>`
+  color: ${(props: InputProps) => (props.status === true ? '#fff' : '#000')};
   font-size: 14px;
   font-weight: 400;
   flex-grow: 1;

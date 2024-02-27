@@ -6,3 +6,7 @@ export interface TodoItemProps {
   onUpdateItem: (updatedItem: ItemProps) => void;
   onToggleStatus: (itemId: string) => void;
 }
+
+export interface InputProps {
+  status: boolean;
+}
